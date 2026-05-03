@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nick McGreivy</title>
+  <meta name="description" content="Nick McGreivy — researcher in machine learning and scientific computing; tech lead at Preference Model.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="wide">
+    <a class="name" href="./">Nick McGreivy</a>
+    <nav>
+      <a href="research.html">Research</a>
+      <a href="writing.html">Writing</a>
+    </nav>
+  </header>
+
+  <main class="wide">
+    <div class="home-grid">
+
+      <section>
+        <ul class="timeline">
+          <li>
+            <div class="logo-cell"><img src="img/preferencemodel_logo_core.png" alt="Preference Model"></div>
+            <div>
+              <p class="t-head"><strong>Preference Model</strong> <span class="t-dates">2025 – Present</span></p>
+              <p class="t-body">Technical Lead, RL Environments. Previously Member of Technical Staff.</p>
+            </div>
+          </li>
+          <li>
+            <div class="logo-cell"><img src="img/University-of-Princeton-Logo.png" alt="Princeton University"></div>
+            <div>
+              <p class="t-head"><strong>Princeton University</strong> <span class="t-dates">2017 – 2024</span></p>
+              <p class="t-body">PhD, Plasma Physics. Certificate in Machine Learning &amp; Statistics. </p>
+            </div>
+          </li>
+          <li>
+            <div class="logo-cell"><img src="img/penn-logo.png" alt="University of Pennsylvania"></div>
+            <div>
+              <p class="t-head"><strong>University of Pennsylvania</strong> <span class="t-dates">2013 – 2017</span></p>
+              <p class="t-body">Physics Major, CS Minor. Frazier Award (highest GPA among subset of student-athletes), Dean's Scholar Award, Phi Beta Kappa (junior inductee), Summa Cum Laude.</p>
+            </div>
+          </li>
+        </ul>
+
+        <h2>Links</h2>
+        <ul class="links">
+          <li><a href="https://scholar.google.com/citations?user=CUC0rVgAAAAJ&amp;hl=en">Google Scholar</a></li>
+          <li><a href="https://github.com/nickmcgreivy">GitHub</a></li>
+          <li><a href="https://nickmcgreivy.substack.com">Substack</a></li>
+          <li><a href="https://x.com/NMcGreivy">Twitter / X</a></li>
+          <li><a id="email-link" href="#">Email</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>About</h2>
+        <p class="location">San Francisco, CA</p>
+        <img class="about-photo" src="img/nick.jpg" alt="Nick McGreivy">
+        <p>
+          I'm currently the Technical Lead for RL environments at <a href="https://www.preferencemodel.com">Preference Model</a>. Before that, I did a PhD in Physics at Princeton University, where my research focused on machine learning and computational plasma physics.
+        </p>
+        <p>
+          My research has appeared in <a href="https://www.nature.com/articles/s42256-024-00897-5">Nature Machine Intelligence</a>, <a href="https://arxiv.org/abs/2007.10412">ICLR</a>, <a href="https://iopscience.iop.org/article/10.1088/1741-4326/abcd76/meta">Nuclear Fusion</a>, and <a href="https://pubs.aip.org/aip/pop/article/28/8/082111/106831">Physics of Plasmas</a>.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wide">
+    &copy; <span id="y"></span> Nick McGreivy
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+      (function () {
+        var a = document.getElementById('email-link');
+        if (a) a.href = 'mailto:' + ['nickmcgreivy', 'gmail.com'].join('@');
+      })();
+    </script>
+  </footer>
+</body>
+</html>

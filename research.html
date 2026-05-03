@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research — Nick McGreivy</title>
+  <meta name="description" content="Selected publications by Nick McGreivy.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="wide">
+    <a class="name" href="./">Nick McGreivy</a>
+    <nav>
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="writing.html">Writing</a>
+    </nav>
+  </header>
+
+  <main class="wide">
+
+    <article class="post-card">
+      <a class="post-cover fit" href="https://www.nature.com/articles/s42256-024-00897-5">
+        <img src="img/weak-baselines-reporting-biases.png" alt="">
+      </a>
+      <div class="post-body">
+        <h3><a href="https://www.nature.com/articles/s42256-024-00897-5">Weak baselines and reporting biases lead to overoptimism in machine learning for fluid-related partial differential equations</a></h3>
+        <p class="meta">Nick McGreivy, Ammar Hakim &middot; <em>Nature Machine Intelligence</em>, 2024</p>
+        <p>Performs a systematic review of the ML-for-PDE solving literature. Finds that 79% (60/76) of articles compare to weak baselines. Concludes that ML-for-PDE solving research is systemically overoptimistic.</p>
+        <p class="links-row">
+          <a href="https://arxiv.org/abs/2407.07218">arXiv</a> &middot;
+          <a href="https://github.com/nickmcgreivy/WeakBaselinesMLPDE">code</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <a class="post-cover fit" href="https://arxiv.org/abs/2303.16110">
+        <img src="img/invariant-preservation.png" alt="">
+      </a>
+      <div class="post-body">
+        <h3><a href="https://arxiv.org/abs/2303.16110">Invariant preservation in machine learned PDE solvers via error correction</a></h3>
+        <p class="meta">Nick McGreivy, Ammar Hakim &middot; arXiv, 2023</p>
+        <p>An algorithm for constraining ML-PDE solvers to satisfy conservation laws and other physical invariances, without restricting the network architecture or losing accuracy.</p>
+        <p class="links-row">
+          <a href="https://arxiv.org/abs/2303.16110">arXiv</a> &middot;
+          <a href="https://github.com/nickmcgreivy/InvariantPreservingMLSolvers">code</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <a class="post-cover fit" href="https://arxiv.org/abs/2211.01604">
+        <img src="img/meta-pde.png" alt="">
+      </a>
+      <div class="post-body">
+        <h3><a href="https://arxiv.org/abs/2211.01604">Meta-PDE: Learning to Solve PDEs Quickly Without a Mesh</a></h3>
+        <p class="meta">Tian Qin, Alex Beatson, Deniz Oktay, Nick McGreivy, Ryan P. Adams &middot; arXiv, 2022</p>
+        <p>A meta-learning approach for solving PDEs with neural networks. Amortizes the cost across varying boundary conditions, parameters, and geometries.</p>
+        <p class="links-row">
+          <a href="https://arxiv.org/abs/2211.01604">arXiv</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <a class="post-cover fit" href="https://pubs.aip.org/aip/pop/article/28/8/082111/106831">
+        <img src="img/biot-savart.png" alt="">
+      </a>
+      <div class="post-body">
+        <h3><a href="https://pubs.aip.org/aip/pop/article/28/8/082111/106831">Computation of the Biot–Savart line integral with higher-order convergence using straight segments</a></h3>
+        <p class="meta">Nick McGreivy, Caoxiang Zhu, Lee Gunderson, Stuart R. Hudson &middot; <em>Physics of Plasmas</em>, 2021</p>
+        <p>Improves a standard algorithm for converting the Biot-Savart law from second-order to fourth-order accuracy. Useful for fast, accurate magnetic field computation.</p>
+        <p class="links-row">
+          <a href="https://arxiv.org/abs/2105.12522">arXiv</a> &middot;
+          <a href="https://github.com/nickmcgreivy/biot-savart-line-integral">code</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <a class="post-cover fit" href="https://iopscience.iop.org/article/10.1088/1741-4326/abcd76/meta">
+        <img src="img/stellarator-optimization.png" alt="">
+      </a>
+      <div class="post-body">
+        <h3><a href="https://iopscience.iop.org/article/10.1088/1741-4326/abcd76/meta">Optimized finite-build stellarator coils using automatic differentiation</a></h3>
+        <p class="meta">Nick McGreivy, Stuart R. Hudson, Caoxiang Zhu &middot; <em>Nuclear Fusion</em>, 2021</p>
+        <p> Describes FOCUSADD, a stellarator coil-design code that optimizes finite-build coils via gradient-based methods. Introduced autodiff to the stellarator optimization community.</p>
+        <p class="links-row">
+          <a href="https://arxiv.org/abs/2009.00196">arXiv</a> &middot;
+          <a href="https://github.com/nickmcgreivy/FOCUSADD">code</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <a class="post-cover fit" href="https://arxiv.org/abs/2007.10412">
+        <img src="img/randomized-automatic-differentiation.png" alt="">
+      </a>
+      <div class="post-body">
+        <h3><a href="https://arxiv.org/abs/2007.10412">Randomized Automatic Differentiation</a></h3>
+        <p class="meta">Deniz Oktay, Nick McGreivy, Joshua Aduol, Alex Beatson, Ryan P. Adams &middot; <em>ICLR 2021 (Oral)</em></p>
+        <p>A stochastic gradient approximation framework that reduces the memory cost of reverse-mode AD by sparsifying the computational graph. Trades exactness for memory savings in ReLU networks.</p>
+        <p class="links-row">
+          <a href="https://arxiv.org/abs/2007.10412">arXiv</a> &middot;
+          <a href="https://github.com/PrincetonLIPS/RandomizedAutomaticDifferentiation">code</a>
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="wide">
+    &copy; <span id="y"></span> Nick McGreivy
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </footer>
+</body>
+</html>

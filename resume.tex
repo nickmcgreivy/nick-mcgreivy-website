@@ -1,0 +1,339 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Nick McGreivy's CV},
+    pdfauthor={Nick McGreivy},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    % \usepackage[T1]{fontenc} % this breaks sb2nov
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+%\patchcmd{\ps@customFooterStyle}{\thepage}{\color{gray}\textit{\small Nick McGreivy - Page \thepage{} of \pageref*{LastPage}}}{}{} % replace number by desired string
+\patchcmd{\ps@customFooterStyle}{\thepage}{}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\circ$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.0 cm + 0.00001 cm
+    }{
+        0.0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+
+\newenvironment{halfcolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{widetwocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 9.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{verywidetwocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 13.0 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{thintwocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 3.0 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{verythintwocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 2.0 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{
+        % insert here
+        }\hspace{\widthof{
+        % insert here
+        }}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow[pdfnewwindow=true]{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+% google scholar
+\usepackage{graphicx}
+\newcommand{\googlescholarlogo}{\includegraphics[trim={1.6cm 1.6cm 1.6cm 1.6cm},height=\fontcharht\font`A]{scholar.png}}
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+
+    \placelastupdatedtext
+    \begin{header}
+        \textbf{\fontsize{24 pt}{24 pt}\selectfont Nick McGreivy}
+
+        %\vspace{0.1 cm}
+
+        \normalsize
+        \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}Stanford, CA}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{
+        \hrefWithoutArrow[pdfnewwindow=true]{mailto:mcgreivy@alumni.princeton.edu}
+        {\color{black}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}mcgreivy@alumni.princeton.edu}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}(301) 641-0005}}%
+        \kern 0.25 cm%
+    \end{header}
+
+
+\section{Work Experience}
+\begin{twocolentry}{{2025 - Present}}
+    \textbf{Preference Model (RL Environments)}
+\end{twocolentry}
+\begin{highlights}
+    \item \textit{Tech Lead, Environments Builders} (March 2026 - Present). Senior engineer the org looks to for technical leadership and guidance; sets technical standards for environments and tasks; owns documentation and documentation processes.
+    \item \textit{Member of Technical Staff} (2025 - March 2026).
+\end{highlights}
+
+\section{Education}
+\begin{twocolentry}{{2017 - 2024}}
+    \textbf{Princeton University}
+\end{twocolentry}
+\begin{highlights}
+    \item \textit{Ph.D., Physics}
+    \item \textit{Machine Learning \& Statistics, Certificate}
+\end{highlights}
+
+\begin{twocolentry}{2013 - 2017}
+    \textbf{University of Pennsylvania}
+\end{twocolentry}
+\begin{highlights}
+    \item \textit{B.A., Physics}
+    \item \textit{Computer Science, Minor}
+    \item \textit{GPA: 3.87/4.0, 3.98/4.3}
+\end{highlights}
+
+
+\section{Highlights}
+
+    \begin{highlights}
+        \item \textbf{Nature Machine Intelligence}, first author. \textbf{ICLR (Oral presentation)}, second author. 
+        \item Wrote a blog post about AI in science that was read 125,000 times.
+        \item \textit{``In comparison with other UPenn undergraduates that I have taught (about 250 students since 2010), Nick truly stands out for hard work and dedication, for earnest curiosity about physics, and for taking the time to challenge his own understanding of ideas.''} --Penn Physics Professor
+    \end{highlights}
+
+\section{Technical Skills}
+
+    \begin{highlights}
+        \item \textbf{Languages:} Python, C++
+        \item \textbf{Libraries:} PyTorch, JAX, NumPy, Flax, Optax, Eigen, h5py
+        \item \textbf{Technologies:} AI/ML, Linux/Unix, Git, Computer Vision, NLP, Distributed Training
+    \end{highlights}
+
+
+\section{Projects and Experience}
+
+\begin{twocolentry}{2021 - 2024}
+    \textbf{AI/ML for Partial Differential Equations}, PhD Dissertation
+\end{twocolentry}
+    \begin{highlights}
+        \item Implemented numerical algorithms in JAX to generate training data for custom convolutional neural networks.
+        \item Designed algorithms to embed conservation laws as inductive biases in neural networks.
+        \item Critically evaluated baselines in literature, concluded that 79\% (60/76) of papers compared to weak baselines.
+    \end{highlights}
+\begin{twocolentry}{2023 - 2024}
+    \textbf{Deep Learning with JAX Book}, Manning Publications
+\end{twocolentry}
+    \begin{highlights}
+        \item Served as technical editor. Checked every line for correctness.
+    \end{highlights}
+\begin{twocolentry}{2019 - 2021}
+    \textbf{Optimizing Stellarator Coils using Automatic Differentiation}, PhD Research
+\end{twocolentry}
+    \begin{highlights}
+        \item Introduced autodiff, commonly used to optimize neural networks, to the stellarator optimization community.
+        \item Published two first-author papers in \textit{Nuclear Fusion} and \textit{Physics of Plasmas}.
+    \end{highlights}
+\begin{twocolentry}{2019 - 2021}
+    \textbf{Randomized Automatic Differentiation}, PhD Research
+\end{twocolentry}
+    \begin{highlights}
+        \item Collaborated with researchers from the computer science department to develop low-memory stochastic gradient approximation algorithms for ReLU neural networks. Received Oral presentation at ICLR.
+    \end{highlights}
+
+\section{Awards and Honors}
+
+\begin{highlights}
+    \item \textbf{Dean's Scholar Award:} top 0.5\% of upperclassmen at Penn
+    \item \textbf{Phi Beta Kappa (Junior Inductee)}: top 0.7\% of junior class at Penn
+    \item \textbf{George H. Frazier Award:} highest GPA among Penn student-athletes who competed on one of the following teams: basketball, crew, track \& field, soccer, baseball, football
+\end{highlights}
+
+    % \section{Additional Information}
+
+    %     \begin{widetwocolentry}{
+    %     \begin{highlights}
+    %         \item \textbf{Co-founder \& President}, Penn Club Basketball
+    %         \item \textbf{Interests \& Activities:} surfing, hiking, fitness, travel
+    %     \end{highlights}
+    %     }
+    %         \begin{highlights}
+    %             \item \textbf{Division I Track \& Field}, high jump
+    %             \item \textbf{Social Chair}, Princeton Graduate College
+
+    %         \end{highlights}
+    %     \end{widetwocolentry}
+
+\end{document}
